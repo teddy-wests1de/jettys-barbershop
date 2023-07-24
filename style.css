@@ -1,5 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap');
+
 body {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    font-family: 'Inter', sans-serif;
+    font-size: .75rem;
+    min-height: 100vh;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #fff;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border: none;
+    background-color: #b89898a5;
+    width: 100%;
+    padding: 1rem;
+}
+.sticky {
+    position: sticky;
+}
+.menu {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.desktop-menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 960px;
+}
+.page-title {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+}
+.page-title p {
+    font-size: 1rem;
+    flex: auto;
+    margin: .2rem .5rem ;
+    text-align: left;
+}
+
+.subtitle {
+flex-basis: 70%;
+background-color: #D9D9D9;
+margin-right: .5rem;
+border-radius: 4px;
+padding-left: 1rem;
+}
+.booking {
+    /* flex: .5 .2; */
+    width: 80px;
+}
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+.card {
+    position: relative;
+    margin: 1rem;
+    width: 250px;
+    height: 200px;
+    border-radius: 5px;
+    background-color: #D9D9D9;
+    overflow: hidden;
+}
+.card__title {
+    height: 2rem;
+    width: 100%;
+    background-color: #B89898;
+}
+.footer {
+    width: 100%;
+    text-align: center;
+    border: 1px solid #B89898;
+    background-color: #B89898;
+    padding: 2rem;
+    align-self: end;
+}
+@media (max-width: 800px) {
+    .page-title p {
+        text-align: center;
+    }
+    .desktop-menu {
+        display: none;
+    }
+    /* .cards {
+        justify-content: left;
+    } */
 }
