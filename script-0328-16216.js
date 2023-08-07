@@ -7,10 +7,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const btnBooking = document.querySelector(".booking");
 const headerHeight = header.getBoundingClientRect().height;
 const styleCards = document.querySelector(".cards");
-const subHeading = document.querySelector('.subheading');
-const sections = document.querySelectorAll('.section');
 const contactForm = document.querySelector(".contact-form");
-
 // Objects
 
 const headerObserver = new IntersectionObserver(
@@ -32,37 +29,36 @@ headerObserver.observe(header);
 // Functions
 
 const contactUs = function () {
-  // styleCards.style.display = "none";
-  subHeading.style.display = 'none';
-  sections.forEach(section => section.style.display = 'none')
+  styleCards.style.display = "none";
   contactForm.style.display = "block";
 };
 
-const displayPriceList = function() {
-  sections.forEach(section => section.style.display = 'none')
-
-}
-// Buttons 
+// Buttons
 btnMenu.addEventListener("click", function () {
   desktopMenu.classList.toggle("hidden");
 });
 
 menu.addEventListener("click", function (e) {
-  // e.preventDefault();
+  e.preventDefault();
   if (e.target.classList.contains("nav__link")) {
     const link = e.target;
-    // console.log(link)
+    console.log(link);
     const siblings = link
       .closest(".desktop-menu")
       .querySelectorAll(".nav__link");
 
     siblings.forEach((el) => {
       if (el !== link) {
-        el.style.color = "rgba(0, 0, 0, 0.5)";
-        // console.log(el);
+        el.style.color = "rgba(0, 0, 255, 0.519)";
+        // console.log(link);
       }
     });
-    link.style.color = "rgba(255, 255, 255, 0.502)";
+    link.style.color = "#f00";
+    switch (link.id) {
+      case "contact":
+        contactUs();
+        break;
+    }
   }
 });
 btnBooking.addEventListener("click", contactUs);
