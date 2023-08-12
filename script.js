@@ -4,20 +4,17 @@ const header = document.querySelector(".header");
 const menu = document.querySelector(".menu");
 const btnMenu = document.querySelector(".btn-menu");
 const desktopMenu = document.querySelector(".desktop-menu");
-const btnBooking = document.querySelector(".booking");
 const headerHeight = header.getBoundingClientRect().height;
 const styleCards = document.querySelector(".cards");
-const subHeading = document.querySelector('.subheading');
-const sections = document.querySelectorAll('.section');
+const subHeading = document.querySelector(".subheading");
+const sections = document.querySelectorAll(".section");
 const contactForm = document.querySelector(".contact-form");
-
-// Objects
 
 const headerObserver = new IntersectionObserver(
   function (entries) {
     const [entry] = entries;
     if (!entry.isIntersecting) entry.target.classList.add("sticky");
-    // else entry.target.classList.remove('sticky');
+    else entry.target.classList.remove("sticky");
     console.log(entry.target);
   },
   {
@@ -29,40 +26,26 @@ const headerObserver = new IntersectionObserver(
 
 headerObserver.observe(header);
 
-// Functions
-
-const contactUs = function () {
-  // styleCards.style.display = "none";
-  subHeading.style.display = 'none';
-  sections.forEach(section => section.style.display = 'none')
-  contactForm.style.display = "block";
-};
-
-const displayPriceList = function() {
-  sections.forEach(section => section.style.display = 'none')
-
-}
-// Buttons 
+// Buttons
 btnMenu.addEventListener("click", function () {
   desktopMenu.classList.toggle("hidden");
 });
 
 menu.addEventListener("click", function (e) {
-  // e.preventDefault();
+  e.preventDefault();
   if (e.target.classList.contains("nav__link")) {
+    desktopMenu.classList.add("hidden");
     const link = e.target;
-    // console.log(link)
+    console.log(link.dataset.list);
+
     const siblings = link
       .closest(".desktop-menu")
       .querySelectorAll(".nav__link");
 
-    siblings.forEach((el) => {
-      if (el !== link) {
-        el.style.color = "rgba(0, 0, 0, 0.5)";
-        // console.log(el);
-      }
+    const sections = Array.from(document.querySelectorAll(".section"));
+    sections.forEach((section) => {
+      section.classList.add("hideSection");
     });
-    link.style.color = "rgba(255, 255, 255, 0.502)";
+    sections[link.dataset.list].classList.remove("hideSection");
   }
 });
-btnBooking.addEventListener("click", contactUs);
