@@ -9,6 +9,9 @@ body {
   min-height: 100vh;
   background-color: #fffcfc;
 }
+h3 {
+  margin: 1rem;
+}
 label {
   white-space: nowrap;
   width: 150px;
@@ -155,6 +158,9 @@ img {
   max-width: 600px;
   flex-grow: 1;
 }
+#section--1 .card {
+  max-width: 386px;
+}
 .card__title {
   display: flex;
   align-items: center;
@@ -191,11 +197,31 @@ img {
   flex: 0.75;
   max-width: 100%;
 }
-#section--2.card {
+.description {
+  display: inline-block;
+  width: 49%;
+}
+#section--2 {
+  max-width: 600px;
   padding: 1rem;
 }
+#section2 .card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+}
+.card__image {
+  min-width: 300px;
+  height: 250px;
+}
+.price {
+  margin: 1rem;
+}
+.card__story {
+  margin-top: 1rem;
+  max-width: 600px;
+}
 .contact-form {
-  /* display: none; */
   width: 100%;
   padding: 1rem;
 }
@@ -205,8 +231,12 @@ img {
   padding: 1rem;
   border-radius: 4px;
 }
+.form-header {
+  margin: .5rem;
+  /* font-size: 0.8rem; */
+}
 .contact-form form h3 {
-  margin-bottom: 1rem;
+  margin: 1rem;
   font-size: 0.8rem;
 }
 .form-control {
@@ -225,6 +255,19 @@ img {
   width: 100%;
   padding: 0.5rem;
 }
+
+.appointment {
+  /* border: 1px solid red; */
+  width: 100%;
+  display: block;
+  padding: 1rem;
+  opacity: 0;
+}
+.card__image {
+  display: flex;
+  place-content: center;
+  background-color: rgba(127, 255, 212, 0.432);
+}
 .footer {
   width: 100%;
   text-align: center;
@@ -233,9 +276,23 @@ img {
   padding: 2rem;
   align-self: end;
 }
-@media (min-width: 800px) {
+@media (min-width: 760px) {
   .card {
     margin-right: 1rem;
+  }
+ #section--2 .card {
+  margin-right:0;
+  position: relative;
+    flex-direction: row;
+  }
+  .card__heading {
+    position: absolute;
+    top: 50%;
+
+  }
+ 
+  .card__price {
+    width: 80%;
   }
   .page-title p {
     text-align: center;
@@ -267,14 +324,10 @@ img {
   .subtitle {
     flex-basis: 70%;
   }
-  .card__content {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, min-max(10em, 25em)) ; */
-    grid-template-areas: "image text";
-  }
   .btn-menu {
     display: none;
   }
+ 
 }
 @media (max-width: 480px) {
   .form-control {
