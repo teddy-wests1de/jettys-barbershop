@@ -128,7 +128,6 @@ img {
 }
 
 .subtitle {
-  max-width: 600px;
   background-color: #d9d9d9;
   border-radius: 4px;
   padding-left: .5rem;
@@ -266,7 +265,7 @@ img {
 .card__image {
   display: flex;
   place-content: center;
-  background-color: rgba(127, 255, 212, 0.432);
+  background-color: rgba(30, 45, 40, 0.437);
 }
 .footer {
   width: 100%;
